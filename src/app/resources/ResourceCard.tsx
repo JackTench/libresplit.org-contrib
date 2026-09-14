@@ -1,6 +1,12 @@
 import { FileCode, Palette, Timer } from "lucide-solid";
 
-import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { getDisplayName, type RepoResource } from "@/lib/resources/model";
 
 interface ResourceCardProps {
@@ -27,6 +33,11 @@ export function ResourceCard(props: ResourceCardProps) {
         <Icon />
         <CardTitle>{name}</CardTitle>
       </CardHeader>
+      <CardContent>
+        <CardDescription class="truncate">
+          {props.resource.path}
+        </CardDescription>
+      </CardContent>
     </Card>
   );
 }
