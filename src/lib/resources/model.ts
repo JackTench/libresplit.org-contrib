@@ -10,6 +10,13 @@ export interface RepoResource {
   rawUrl: string;
 }
 
+export function getDisplayName(resource: RepoResource) {
+  return resource.name
+    .replace(/\.[^.]+$/, "")
+    .replaceAll("-", " ")
+    .replaceAll("_", " ");
+}
+
 export interface GitHubTreeItem {
   path: string;
   mode: string;
