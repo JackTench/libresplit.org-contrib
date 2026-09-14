@@ -5,7 +5,7 @@ export interface RepoResource {
   path: string;
   type: RepoResourceType;
   extension: string;
-  size?: number;
+  size: number | undefined;
   sha: string;
   rawUrl: string;
 }
