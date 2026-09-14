@@ -1,4 +1,8 @@
-import type { GitHubTreeResponse, RepoResource } from "./model";
+import type {
+  GitHubTreeResponse,
+  RepoResource,
+  RepoResourceType,
+} from "./model";
 
 const OWNER = "LibreSpluit";
 const REPO = "LibreSplit-resources";
@@ -14,4 +18,28 @@ export async function fetchResources(): Promise<RepoResource[]> {
   }
 
   const data: GitHubTreeResponse = await response.json();
+
+  return data.tree
+    .filter((item) => item.type === "blob")
+    .map((item) => {
+      const [directory] = item.path.split("/");
+
+      let type: RepoResourceType | undefined;
+
+      switch (directory) {
+        case "splits":
+          type = "split";
+          break;
+        case "themes":
+          type = "theme";
+          break;
+        case "auto-splitters":
+          type = "auto-splitter";
+          break;
+      }
+
+      if (!type) {
+        return null;
+      }
+    });
 }
