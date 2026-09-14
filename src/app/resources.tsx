@@ -17,11 +17,13 @@ export function Resources() {
 
     return (
       resources.data?.filter((resource) => {
+        const matchesType = filter() === "all" || resource.type === filter();
+
         const matchesSearch =
           resource.name.toLowerCase().includes(query) ||
           resource.path.toLowerCase().includes(query);
 
-        return matchesSearch;
+        return matchesType && matchesSearch;
       }) ?? []
     );
   });
