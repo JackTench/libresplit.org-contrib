@@ -12,6 +12,7 @@ import { Themes } from "./app/docs/themes";
 import { Troubleshooting } from "./app/docs/troubleshooting";
 import { Home } from "./app/home";
 import { NotFound } from "./app/not-found";
+import { Resources } from "./app/resources";
 import { LayoutDocs } from "./components/layouts/LayoutDocs";
 
 export default function AppRouter() {
@@ -21,6 +22,7 @@ export default function AppRouter() {
       <Route path="/installation" component={Installation} />
       <Route path="/docs" component={Docs} />
       <Route path="/converter" component={Converter} />
+      <Route path="/resources" component={Resources} />
 
       {/* Documentation pages pulled from GitHub. */}
       <Route path="/docs" component={LayoutDocs}>

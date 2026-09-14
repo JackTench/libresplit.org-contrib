@@ -29,6 +29,7 @@ const navigationItems: readonly NavigationItem[] = [
   { label: "Installation", href: "/installation" },
   { label: "Docs", href: "/docs", includesSubpaths: true },
   { label: "Converter", href: "/converter" },
+  { label: "Resources", href: "/resources" },
 ];
 
 export function AppNav() {
