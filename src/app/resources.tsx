@@ -5,6 +5,8 @@ import { Input } from "@/components/ui/input";
 import type { RepoResourceType } from "@/lib/resources/model";
 import { useResources } from "@/lib/resources/query";
 
+import { ResourceCard } from "./resources/ResourceCard";
+
 type ResourceFilter = RepoResourceType | "all";
 
 export function Resources() {
@@ -77,7 +79,7 @@ export function Resources() {
       </div>
 
       <For each={filteredResources()}>
-        {(resource) => <span>{resource.name}</span>}
+        {(resource) => <ResourceCard resource={resource} />}
       </For>
     </div>
   );
