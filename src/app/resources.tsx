@@ -1,5 +1,6 @@
 import { createMemo, createSignal, For } from "solid-js";
 
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import type { RepoResourceType } from "@/lib/resources/model";
 import { useResources } from "@/lib/resources/query";
@@ -49,12 +50,30 @@ export function Resources() {
 
       {/* Filter Buttons */}
       <div>
-        <button onClick={() => setFilter("all")}>All</button>
-        <button onClick={() => setFilter("split")}>Splits</button>
-        <button onClick={() => setFilter("theme")}>Themes</button>
-        <button onClick={() => setFilter("auto-splitter")}>
+        <Button
+          variant={filter() === "all" ? "default" : "outline"}
+          onClick={() => setFilter("all")}
+        >
+          All
+        </Button>
+        <Button
+          variant={filter() === "split" ? "default" : "outline"}
+          onClick={() => setFilter("split")}
+        >
+          Splits
+        </Button>
+        <Button
+          variant={filter() === "theme" ? "default" : "outline"}
+          onClick={() => setFilter("theme")}
+        >
+          Themes
+        </Button>
+        <Button
+          variant={filter() === "auto-splitter" ? "default" : "outline"}
+          onClick={() => setFilter("auto-splitter")}
+        >
           Auto Splitters
-        </button>
+        </Button>
       </div>
 
       <For each={filteredResources()}>
