@@ -41,5 +41,18 @@ export async function fetchResources(): Promise<RepoResource[]> {
       if (!type) {
         return null;
       }
-    });
+
+      const name = item.path.split("/").at(-1)!;
+
+      return {
+        name,
+        path: item.path,
+        type,
+        extension: name.split(".").at(-1) ?? "",
+        size: item.size,
+        sha: item.sha,
+        rawUrl: `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/${item.path}`,
+      };
+    })
+    .filter((resource): resource is RepoResource => resource !== null);
 }
