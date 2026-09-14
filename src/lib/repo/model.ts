@@ -9,3 +9,18 @@ export type RepoResource = {
   sha: string;
   rawUrl: string;
 };
+
+export type GitHubTreeItem = {
+  path: string;
+  mode: string;
+  type: "blob" | "tree";
+  sha: string;
+  size?: number;
+  url: string;
+};
+
+export type GitHubTreeResponse = {
+  sha: string;
+  tree: GitHubTreeItem[];
+  truncated: boolean;
+};

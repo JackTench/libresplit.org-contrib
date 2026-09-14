@@ -1,4 +1,4 @@
-import type { RepoResource } from "./model";
+import type { GitHubTreeResponse, RepoResource } from "./model";
 
 const OWNER = "LibreSpluit";
 const REPO = "LibreSplit-resources";
@@ -12,4 +12,6 @@ export async function fetchResources(): Promise<RepoResource[]> {
   if (!response.ok) {
     throw new Error("Failed to fetch LibreSplit resources");
   }
+
+  const data: GitHubTreeResponse = await response.json();
 }
