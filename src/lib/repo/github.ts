@@ -4,7 +4,7 @@ import type {
   RepoResourceType,
 } from "./model";
 
-const OWNER = "LibreSpluit";
+const OWNER = "LibreSplit";
 const REPO = "LibreSplit-resources";
 const BRANCH = "main";
 
