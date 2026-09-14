@@ -1,6 +1,10 @@
+import { createSignal } from "solid-js";
+
 import { Input } from "@/components/ui/input";
 
 export function Resources() {
+  const [search, setSearch] = createSignal("");
+
   return (
     <div>
       <div>
@@ -14,6 +18,8 @@ export function Resources() {
         <Input
           class="flex h-9 w-full rounded-md border border-input bg-background px-3"
           placeholder="Search resources..."
+          value={search()}
+          onInput={(event) => setSearch(event.currentTarget.value)}
         />
       </div>
     </div>
