@@ -32,8 +32,8 @@ export function Resources() {
   });
 
   return (
-    <div>
-      <div>
+    <div class="mx-auto max-w-6xl px-6 py-12">
+      <div class="mb-8">
         <h1 class="text-3xl font-bold">Resources</h1>
         <p class="mt-2 text-muted-foreground">
           Browse splits, themes and auto splitters for LibreSplit.
@@ -41,7 +41,7 @@ export function Resources() {
       </div>
 
       {/* Search Bar */}
-      <div>
+      <div class="mb-6 flex gap-4">
         <Input
           class="flex h-9 w-full rounded-md border border-input bg-background px-3"
           placeholder="Search resources..."
@@ -51,7 +51,7 @@ export function Resources() {
       </div>
 
       {/* Filter Buttons */}
-      <div>
+      <div class="mb-8 flex gap-2">
         <Button
           variant={filter() === "all" ? "default" : "outline"}
           onClick={() => setFilter("all")}
@@ -78,9 +78,11 @@ export function Resources() {
         </Button>
       </div>
 
-      <For each={filteredResources()}>
-        {(resource) => <ResourceCard resource={resource} />}
-      </For>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <For each={filteredResources()}>
+          {(resource) => <ResourceCard resource={resource} />}
+        </For>
+      </div>
     </div>
   );
 }

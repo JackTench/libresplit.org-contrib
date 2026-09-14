@@ -28,9 +28,14 @@ export function ResourceCard(props: ResourceCardProps) {
   const Icon = icon();
 
   return (
-    <Card>
+    <Card class="h-full transition hover:border-primary hover:shadow-lg">
       <CardHeader>
-        <Icon />
+        <div class="mb-2 flex items-center gap-2">
+          <Icon class="size-4 text-muted-foreground" />
+          <span class="text-xs text-muted-foreground uppercase">
+            {props.resource.type}
+          </span>
+        </div>
         <CardTitle>{name}</CardTitle>
       </CardHeader>
       <CardContent>
