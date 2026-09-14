@@ -1,6 +1,6 @@
 export type RepoResourceType = "split" | "theme" | "auto-splitter";
 
-export type RepoResource = {
+export interface RepoResource {
   name: string;
   path: string;
   type: RepoResourceType;
@@ -8,19 +8,19 @@ export type RepoResource = {
   size?: number;
   sha: string;
   rawUrl: string;
-};
+}
 
-export type GitHubTreeItem = {
+export interface GitHubTreeItem {
   path: string;
   mode: string;
   type: "blob" | "tree";
   sha: string;
   size?: number;
   url: string;
-};
+}
 
-export type GitHubTreeResponse = {
+export interface GitHubTreeResponse {
   sha: string;
   tree: GitHubTreeItem[];
   truncated: boolean;
-};
+}
