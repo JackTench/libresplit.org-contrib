@@ -20,7 +20,13 @@ export async function fetchResources(): Promise<RepoResource[]> {
   const data: GitHubTreeResponse = await response.json();
 
   return data.tree
-    .filter((item) => item.type === "blob")
+    .filter(
+      (item) =>
+        item.type === "blob" &&
+        [".lua", ".json", ".css"].some((extension) =>
+          item.path.endsWith(extension),
+        ),
+    )
     .map((item) => {
       const [directory] = item.path.split("/");
 
